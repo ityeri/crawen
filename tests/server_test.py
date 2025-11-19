@@ -7,7 +7,7 @@ url_manager = JsonURLManager('./sources/data.json')
 asyncio.run(url_manager.load())
 
 server = Server(
-    'https://D',
+    'https://namu.wiki',
     './sources',
     url_manager
 )
