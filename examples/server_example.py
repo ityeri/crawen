@@ -3,11 +3,11 @@ import os
 from json import JSONDecodeError
 import dotenv
 
-import crawler
-from crawler import Server
-from crawler.url_manager import JsonURLManager
+import krawen
+from krawen import Server
+from krawen.url_manager import JsonURLManager
 
-crawler.utils.setup_logging()
+krawen.utils.setup_logging()
 dotenv.load_dotenv()
 
 source_store_path = os.getenv('SOURCE_STORE_PATH')

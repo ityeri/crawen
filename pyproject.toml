@@ -1,5 +1,5 @@
 [project]
-name = "crawler"
+name = "krawen"
 version = "v0.0.1"
 authors = [
   { name="ityeri", email="ityeri9@gmail.com" },
@@ -26,8 +26,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/ityeri/crawler"
-Issues = "https://github.com/ityeri/crawler/issues"
+Homepage = "https://github.com/ityeri/krawen"
+Issues = "https://github.com/ityeri/krawen/issues"
 
 [build-system]
 requires = ["setuptools>=61.0"]

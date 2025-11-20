@@ -8,9 +8,9 @@ from fastapi import FastAPI, APIRouter, Response, Request, HTTPException
 from fastapi.responses import StreamingResponse
 from yarl import URL
 
-from crawler.url_manager import URLManager, URLNotFoundError
-from crawler.utils import parsing_utils
-from crawler.utils.file import read_in_chunks
+from krawen.url_manager import URLManager, URLNotFoundError
+from krawen.utils import parsing_utils
+from krawen.utils.file import read_in_chunks
 
 
 async def default_not_found_handler(url: URL) -> str: pass

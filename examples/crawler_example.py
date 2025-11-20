@@ -4,10 +4,10 @@ import os
 from json import JSONDecodeError
 import dotenv
 
-import crawler
-from crawler.url_manager import JsonURLManager
+import krawen
+from krawen.url_manager import JsonURLManager
 
-crawler.utils.setup_logging(level=logging.DEBUG) # To show download log of each files
+krawen.utils.setup_logging(level=logging.DEBUG) # To show download log of each files
 dotenv.load_dotenv()
 
 source_store_path = os.getenv('SOURCE_STORE_PATH')
@@ -22,7 +22,7 @@ try:
 except (JSONDecodeError, FileNotFoundError):
     asyncio.run(url_manager.save())
 
-crawler_instance = crawler.Crawler(
+crawler = krawen.Crawler(
     'https://buma.wiki',
     source_store_path,
     url_manager
@@ -30,7 +30,7 @@ crawler_instance = crawler.Crawler(
 
 
 async def main():
-    async with crawler_instance:
-        await crawler_instance.download_page('https://buma.wiki')
+    async with crawler:
+        await crawler.download_page('https://buma.wiki')
 
 asyncio.run(main())

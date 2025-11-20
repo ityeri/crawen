@@ -10,9 +10,9 @@ from aiohttp import ClientSession, NonHttpUrlClientError
 from playwright.async_api import Playwright, async_playwright
 from yarl import URL
 
-from crawler.url_manager import URLManager
-from crawler.utils import parsing_utils
-from crawler.utils.url_encoders import default_encoder
+from krawen.url_manager import URLManager
+from krawen.utils import parsing_utils
+from krawen.utils.url_encoders import default_encoder
 
 
 class URLOutOfBoundError(Exception): ...

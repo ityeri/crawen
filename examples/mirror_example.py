@@ -4,12 +4,12 @@ from json import JSONDecodeError
 import dotenv
 from yarl import URL
 
-import crawler
-from crawler import Crawler, Server
-from crawler.crawler import NotHTMLPageError
-from crawler.url_manager import JsonURLManager
+import krawen
+from krawen import Crawler, Server
+from krawen.crawler import NotHTMLPageError
+from krawen.url_manager import JsonURLManager
 
-crawler.utils.setup_logging()
+krawen.utils.setup_logging()
 dotenv.load_dotenv()
 
 source_store_path = os.getenv('SOURCE_STORE_PATH')
@@ -24,7 +24,7 @@ try:
 except (JSONDecodeError, FileNotFoundError):
     asyncio.run(url_manager.save())
 
-crawler_instance = Crawler(
+crawler = Crawler(
     root_url,
     source_store_path,
     url_manager
@@ -38,14 +38,14 @@ server.setup()
 
 async def not_found_handler(url: URL):
     try:
-        await crawler_instance.download_page(url)
+        await crawler.download_page(url)
     except NotHTMLPageError:
-        await crawler_instance.download_single_url(url)
+        await crawler.download_single_url(url)
 server.not_found_handler = not_found_handler
 
 
 async def main():
-    async with crawler_instance:
+    async with crawler:
         await server.run()
 
 asyncio.run(main())
